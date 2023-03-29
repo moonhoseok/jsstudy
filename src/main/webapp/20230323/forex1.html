@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- webapp/20230323/forex1.html -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>개선된 for문</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+ * const : 상수.
+ 	[] 	 : 배열.(LIST)
+ */
+
+	const todos = ["우유구매","업무메일 확인","필라테스수업"]
+	for(const i in todos){
+		//i : 인덱스 값
+		console.log(`${i}번째 할일 : ${todos[i]}`)
+	}
+ 	for(const todo of todos){
+ 		console.log(`오늘의 할일:${todo}`)
+ 	}
+ 	for(let i=0;i<todos.length; i++){
+ 		console.log(`${i}번째 할 일 :${todos[i]}`)
+ 	}
+ 	
+</script>
+</body>
+</html>

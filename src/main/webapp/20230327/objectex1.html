@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- 
+	
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 생성1</title>
+<script type="text/javascript">
+	//const : 상수
+	// JSON 방식 객체생성
+	const pet ={ // 객체.
+			name : "구름", //멤버변수
+			eat : function(food){ //멤버함수
+				alert(this.name+"은"+food+"를 먹습니다.")
+			}
+	}
+	pet.eat('밥'); //함수 호출
+	
+	const student ={}
+	student.이름="홍길동" //이름 멤버 추가.
+	student.취미="요리"
+	student.장래희망="마술사"
+	//JSON.stringify : JSON 객체를 문자열로 표현
+	// null값도 표현. 모든 데이터를 표현
+	// 2 : white space 공백의 수
+	console.log(JSON.stringify(student,null,2))
+	console.log(student.이름)
+	console.log(student)
+	
+	//장래희망 제거하기
+	delete student.장래희망
+	console.log(JSON.stringify(student,null,2))
+	//이름 변경
+	student.이름="김삿갓"
+	console.log(JSON.stringify(student,null,2))
+</script>
+</head>
+<body>
+
+</body>
+</html>

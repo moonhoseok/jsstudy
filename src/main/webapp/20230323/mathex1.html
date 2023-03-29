@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+ * Math.random() : 0 <= x < 1.0 임의의 실수
+ * Math.floor() : 현재값보다 작은 근사정수
+ * Math.ceil() : 현재값보다 큰 근사정수
+ */
+	function getNumber(){//0~9사이의 임의의 정수 리턴
+		return Math.floor(Math.random()*1000)%10; 
+	}
+	let op = ["+","-","*","/","%"]; // 배열로 연산자들 저장
+	function getOp(){// 임의의 연산자 한개를 리턴
+		//Math.ramdom()*op.length : 0 <= x < 5.0 
+		return op[Math.floor(Math.random()*op.length)]; //0이상 4이하
+	}
+	str = getNumber()+getOp()+getNumber();
+	//prompt (내용,기본값) : 값을 입력 받을 수 있는 대화창
+	//ans : prompt 대화창에서 입력된 값 저장
+	// window.prompt
+	ans = prompt(`정수로 입력하세요 : ${str}=`,0)
+	//eval(str) : 문자열로된 내용을 수식형태로 변경해주는 함수.
+	//				보안에 취약함 => new Function() 변환 권장
+	//parseInt : 정수로 변경
+	//res = parseInt(eval(str)); // 수식의 정답
+	res = parseInt(new Function('return '+str)());
+	if(res != ans){
+		document.write("<font color = 'red' size='5'> 틀렸습니다.</font><br>")
+		document.write("입력한 값:"+ans+"<br>");
+		document.write("정답 :"+res);
+	}else{
+		document.write("<font color='blue' size='7'> 정답입니다.</font>")
+	}
+</script>
+</body>
+</html>

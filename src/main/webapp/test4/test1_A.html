@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+//printComma 메서드 추가.
+   Number.prototype.printComma = function() {
+	   let num = this.toString();
+	   let output = "";
+	   let i = num.length - 3;
+	   while(i > 0) {
+		   output = "," + num.substr(i,3)+output;
+		   i -=3;
+	   }
+	   output = num.substr(0,3+i) + output;
+	   return output;
+   }
+   // 정규식 이용하기
+   Number.prototype.printComma2 = function() {
+	   let num = this.toString(); //문자열
+	   /*
+	   		-? 		: -문자가 0또는1개
+	   		\d+ 	: 숫자 1개 이상
+	   		\d{3}	: 숫자 3개
+	   		\d*		: 숫자 0개 이상 	
+	   */
+	   let pattern = /(-?\d+)(\d{3})/;
+	   while(pattern.test(num))
+			num = num.replace(pattern,"$1,$2");
+	   return num;
+   }
+   document.write((1234567890).printComma(),"<br>")
+   document.write((123).printComma(),"<br>")
+   document.write((1234567890).printComma2(),"<br>")
+   document.write((123).printComma2(),"<br>")
+</script>
+</body>
+</html>

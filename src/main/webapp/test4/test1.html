@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- webapp/test4/test1.html   
+   Number  클래스의 메서드를 추가하여 세자리마다 ,출력하기 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+Number.prototype.printComma = function(){
+	a = this+""
+	str1=""
+	cnt=0
+	for(i = a.length-1;i>=0;i--){
+		str1+=a[i]
+		cnt++
+		if(cnt%3==0 && i != 0){
+			str1+=","
+		}
+	}
+	str2 =""
+	for(i=str1.length-1; i>=0; i--){
+		str2 += str1[i]
+	}
+	return str2
+
+}
+// 0,123,456,789
+// 012,345,678
+//1,234,567,890
+//123,456,789
+document.write((1234567890).printComma(),"<br>")
+document.write((123).printComma(),"<br>")
+document.write((12345).printComma(),"<br>")
+document.write((123456).printComma(),"<br>")
+document.write((1234).printComma(),"<br>")
+
+</script>
+</body>
+</html>

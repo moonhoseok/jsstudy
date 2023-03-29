@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- webapp/20230322/jsex3.html -->
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+	input{text-align: right;}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+<h2>num1의 값을 num2태그에 복사하기</h2>
+<input type="text" id="num1" value = "100">
+<input type="text" id="num2">
+<!-- onclick : 버튼을 클릭하면 발생하는 이벤트 -->
+<input type="button" value="복사" onclick="num2.value=num1.value">
+<h2>입력된 숫자까지의 합계 구하기</h2>
+<input type="text" id="num">
+<input type="button" value="합계" onclick="hap()"><br>
+합계: <input type="text" id="tot"><br>
+짝수합계: <input type="text" id="eventot"><br>
+홀수합계: <input type="text" id="oddtot"><br>
+3/2: <input type="text" id="aaa"><br>
+<script type="text/javascript">
+	function hap() { // 합계버튼 클릭시 호출되는 함수
+		n=num.value
+		s=0
+		es=0;
+		os=0;
+		for(let i=1; i<=n; i++){
+			s+=i
+			if(i%2==0) es+=i //짝수합
+			if(i%2==1) os+=i //홀수합
+		}
+		tot.value =s
+		eventot.value = es
+		oddtot.value = os
+	}
+	//aaa.value = (int)(1.5) 자료형 int 없음 
+	aaa.value = Math.floor(3/2) // 나보다 아래인 근사정수
+	//aaa.value = Math.ceil(1.5) // 나보다 위인 근사정수 
+</script>
+</body>
+</html>
